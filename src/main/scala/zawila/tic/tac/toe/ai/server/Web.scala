@@ -10,7 +10,7 @@ import org.http4s.dsl.io._
 
 object  Web {
 
-  val helloWorldService = HttpService[IO] {
+  val ticTacToe = HttpService[IO] {
     case GET -> Root / "game" / "start" =>
       Ok(Game.newGame.asJson)
 

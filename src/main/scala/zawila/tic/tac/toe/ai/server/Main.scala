@@ -10,6 +10,6 @@ object Main extends StreamApp[IO] {
   override def stream(args: List[String], requestShutdown: IO[Unit]): fs2.Stream[IO, StreamApp.ExitCode] =
     BlazeBuilder[IO]
     .bindHttp(8080, "localhost")
-    .mountService(Web.helloWorldService, "/")
+    .mountService(Web.ticTacToe, "/")
     .serve
 }
