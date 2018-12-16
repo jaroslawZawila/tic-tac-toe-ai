@@ -15,7 +15,7 @@ final case object EmptyField extends Field {
   override val value: String = ""
 }
 
-final case class GameStatus(board: Board, finished: Boolean, winner: Option[String])
+final case class GameStatus(board: Board, finished: Boolean, winner: Option[Field], nextPlayer: Field)
 
 final case class Board private(fields: List[Field])
 
