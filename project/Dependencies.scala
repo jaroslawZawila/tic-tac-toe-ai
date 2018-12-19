@@ -1,6 +1,6 @@
 import sbt.Keys.{libraryDependencies, _}
 import sbt._
-
+import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
 
 object Dependencies {
 
@@ -18,4 +18,13 @@ object Dependencies {
     libraryDependencies ++= webServiceDeps
   )
 
+  lazy val core = Seq(
+    libraryDependencies ++= Seq(
+      "org.http4s" %% "http4s-circe" % http4sVersion,
+      "com.github.japgolly.scalajs-react" %%% "core" % "1.3.1"
+//      "io.circe" %% "circe-core"    % "0.10.0",
+//      "io.circe" %% "circe-generic" % "0.10.0",
+//      "io.circe" %% "circe-parser"  % "0.10.0"
+    )
+  )
 }

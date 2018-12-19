@@ -1,6 +1,6 @@
 package zawila.tic.tac.toe.ai.server
 
-import zawila.tic.tac.toe.ai.model._
+import zawila.tic.tac.toe.core._
 
 object Game {
 

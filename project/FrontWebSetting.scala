@@ -12,8 +12,10 @@ object FrontWeb {
       libraryDependencies ++= Seq(
       "com.github.japgolly.scalajs-react" %%% "core" % "1.3.1",
       "com.github.japgolly.scalajs-react" %%% "extra" % "1.3.1",
-      //  "com.github.japgolly.scalacss" %% "core" % "0.5.5",
-      "com.github.japgolly.scalacss" %%% "ext-react" % "0.5.5"
+      "com.github.japgolly.scalacss" %%% "ext-react" % "0.5.5",
+      "io.circe" %%% "circe-core"    % "0.10.0",
+      "io.circe" %%% "circe-generic" % "0.10.0",
+      "io.circe" %%% "circe-parser"  % "0.10.0"
     )
   )
 }
