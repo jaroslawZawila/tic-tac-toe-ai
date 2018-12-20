@@ -6,27 +6,28 @@ import scalacss.internal.mutable.StyleSheet
 object CSS extends StyleSheet.Inline  {
   import dsl._
 
-  val body = style("body")(
-    fontSize(14 px),
-    margin(20 px)
+  val body = style(
+    addClassName("container-fluid")
+  )
+
+  val row = style(
+    addClassName("row")
+  )
+
+  val column = style(
+    addClassName("col")
   )
 
   val square = style("Square") (
-    backgroundColor(Color("#fff")),
-    border(1 px, solid, Color("999")),
-    fontWeight.bold,
+    addClassName("btn, btn-primary"),
     lineHeight(34 px),
     height(34 px),
-    marginRight(-1 px),
-    marginTop(-1 px),
-    padding(0 px),
     textAlign.center,
     width(34 px),
 
     &.focus(
       outline.none,
-      backgroundColor(Color("#ddd"))
-
+      addClassName("btn, btn-success")
     )
   )
 

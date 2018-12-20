@@ -3,6 +3,7 @@ package net.zawila.react
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import zawila.tic.tac.toe.core.Field
+import scalacss.ScalaCssReact._
 
 object Square {
 
@@ -10,8 +11,8 @@ object Square {
 
   val Component = ScalaFnComponent[Props](
       p => <.button(
-      ^.className := "btn btn-success",
-      ^.onClick --> p.onClick,
+        ^.onClick --> p.onClick,
+        CSS.square,
       p.number))
 
   def apply(f:String, c: Callback) = Component(Props(f, c))

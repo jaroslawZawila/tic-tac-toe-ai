@@ -11,6 +11,8 @@ import io.circe.parser.decode
 import io.circe.generic.auto._
 import net.zawila.react.Board.BoardProperty
 import zawila.tic.tac.toe.core.GameStatus
+import scalacss.ScalaCssReact._
+
 //
 
 case class Request(method: String, url: String)
@@ -55,18 +57,20 @@ object Game {
     }
 
     def render(p: Unit, s: GameStatus): VdomElement =
-      <.div(^.className := "game",
-        <.div(
+      <.div(CSS.body,
+        <.div(CSS.row,
           <.button (^.onClick --> startGame(startGameRequest), "Start the game"),
         ),
-        <.div(^.className := "game-board",
+        <.div(CSS.row,
           Board.Component(BoardProperty(press, s.board.fields))
         ),
         <.div(^.className := "game-info",
           <.div,
           <.ol
         ),
-        <.div(s.toString)
+        <.div(CSS.row,
+          <.p(s.toString)
+          )
       )
   }
 
