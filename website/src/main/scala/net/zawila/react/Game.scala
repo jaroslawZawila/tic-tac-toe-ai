@@ -13,8 +13,6 @@ import net.zawila.react.Board.BoardProperty
 import zawila.tic.tac.toe.core.GameStatus
 import scalacss.ScalaCssReact._
 
-//
-
 case class Request(method: String, url: String)
 case class Response(status: Int, response: String)
 

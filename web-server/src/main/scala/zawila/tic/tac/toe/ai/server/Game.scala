@@ -34,7 +34,7 @@ object Game {
   }
 
   def move(fieldNumber: Int) = {
-    if(gameStatus.finished == false) {
+    if(gameStatus.finished == false && gameStatus.board.fields(fieldNumber) == EmptyField) {
       val newFields = gameStatus.board.fields.patch(fieldNumber, List(gameStatus.nextPlayer), 1)
       val next = if (gameStatus.nextPlayer == XField) OField else XField
       val winner = calculateWinner(newFields)
