@@ -2,7 +2,7 @@ package net.zawila.react
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Ajax
-import japgolly.scalajs.react.vdom.html_<^._
+import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import org.scalajs.dom.document
 import scalacss.DevDefaults._
 
@@ -54,18 +54,30 @@ object Game {
       startGame(pressRequest(int))
     }
 
+    private val getMessage = (s: GameStatus) =>
+      s.winner.fold(<.p(s"Next player: ${s.nextPlayer.value}"))(w => <.p(<.b(s"Winner is ${w.value}")))
+
+
     def render(p: Unit, s: GameStatus): VdomElement =
       <.div(CSS.body,
         <.div(CSS.row,
-          <.button (^.onClick --> startGame(startGameRequest), "Start the game"),
+          <.div(^.className := "col-4"),
+          <.div(^.className := "col-4", getMessage(s)),
+          <.div(^.className := "col-3"),
         ),
         <.div(CSS.row,
-          Board.Component(BoardProperty(press, s.board.fields))
+          <.div(^.className := "col-4"),
+          <.div(^.className := "col-4",
+            Board.Component(BoardProperty(press, s.board.fields))
+            ),
+          <.div(^.className := "col-4")
         ),
-        <.div(^.className := "game-info",
-          <.div,
-          <.ol
-        ),
+        <.div(CSS.emptyRow),
+        <.div(CSS.row,
+          <.div(^.className := "col-5"),
+          <.div(^.className := "col-2",
+            <.button (^.onClick --> startGame(startGameRequest), "Start the game")),
+          <.div(^.className := "col-5")),
         <.div(CSS.row,
           <.p(s.toString)
           )

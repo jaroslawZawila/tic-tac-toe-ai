@@ -14,21 +14,20 @@ object CSS extends StyleSheet.Inline  {
     addClassName("row")
   )
 
-  val column = style(
-    addClassName("col")
+  val emptyRow = style(
+    height(20 px)
   )
 
-  val square = style("Square") (
-    addClassName("btn, btn-primary"),
-    lineHeight(34 px),
-    height(34 px),
-    textAlign.center,
-    width(34 px),
+  val column = style(
+    addClassName("col-4")
+  )
 
-    &.focus(
-      outline.none,
-      addClassName("btn, btn-success")
-    )
+  val square = style (
+    addClassName(", btn btn-light border border-dark col-4"),
+//    lineHeight(34 px),
+    height(45 px),
+    textAlign.center,
+//    width(34 px),
   )
 
   val boardRow = style("board-row")(

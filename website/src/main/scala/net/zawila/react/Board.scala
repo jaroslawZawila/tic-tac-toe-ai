@@ -15,24 +15,17 @@ object Board  {
     def render(state: BoardProperty): VdomElement = {
       <.div(CSS.body,
         <.div(CSS.row,
-          <.div(CSS.column,
-            <.p(s"Status: Winner")
-          )
-        ),
-        <.div(CSS.body,
-          <.div(CSS.row,
-            renderSquare(0, state),
-            renderSquare(1, state),
-            renderSquare(2, state)),
-          <.div(CSS.row,
-            renderSquare(3, state),
-            renderSquare(4, state),
-            renderSquare(5, state)),
-          <.div(CSS.row,
-            renderSquare(6, state),
-            renderSquare(7, state),
-            renderSquare(8, state))
-        )
+          renderSquare(0, state),
+          renderSquare(1, state),
+          renderSquare(2, state)),
+        <.div(CSS.row,
+          renderSquare(3, state),
+          renderSquare(4, state),
+          renderSquare(5, state)),
+        <.div(CSS.row,
+          renderSquare(6, state),
+          renderSquare(7, state),
+          renderSquare(8, state))
       )
     }
 

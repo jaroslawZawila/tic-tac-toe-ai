@@ -2,7 +2,6 @@ package net.zawila.react
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-import zawila.tic.tac.toe.core.Field
 import scalacss.ScalaCssReact._
 
 object Square {
