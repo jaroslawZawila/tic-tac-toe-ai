@@ -14,8 +14,8 @@ object  Web {
     case GET -> Root / "game" / "start" =>
       Ok(Game.newGame.asJson)
 
-    case GET -> Root / "game" / "move" / IntVar(block) =>
-      Ok(Game.move(block).asJson)
+    case GET -> Root / "game" / "random" / "move" / IntVar(block) =>
+      Ok(Game.randomeGame(block).asJson)
 
   }
 

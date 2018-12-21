@@ -2,6 +2,8 @@ package zawila.tic.tac.toe.ai.server
 
 import zawila.tic.tac.toe.core._
 
+import scala.util.Random
+
 object Game {
 
   val winningComibinations = Set(
@@ -33,7 +35,15 @@ object Game {
     gameStatus
   }
 
-  def move(fieldNumber: Int) = {
+
+  def randomeGame(number: Int) = {
+    makeMove(number)
+    if(!gameStatus.finished) {
+      makeMove(computerMove)
+    }
+  }
+
+  private def makeMove(fieldNumber: Int) = {
     if(gameStatus.finished == false && gameStatus.board.fields(fieldNumber) == EmptyField) {
       val newFields = gameStatus.board.fields.patch(fieldNumber, List(gameStatus.nextPlayer), 1)
       val next = if (gameStatus.nextPlayer == XField) OField else XField
@@ -45,6 +55,15 @@ object Game {
       gameStatus
     }
 
+  }
+
+  def computerMove: Int = {
+      val random = Random.nextInt(9)
+
+      gameStatus.board.fields(random) match {
+        case EmptyField => random
+        case _ => computerMove
+      }
   }
 
 }

@@ -37,7 +37,7 @@ object Game {
   final class Backend($: BackendScope[Unit, GameStatus]) {
 
     val startGameRequest = Request("GET", "http://localhost:8080/game/start")
-    def pressRequest(i: Int) = Request("GET", s"http://localhost:8080/game/move/$i")
+    def randomeGameRequest  (i: Int) = Request("GET", s"http://localhost:8080/game/random/move/$i")
 
     private def startGame(req: Request): Callback = {
       val ajax = Ajax(req.method, req.url)
@@ -51,7 +51,7 @@ object Game {
     }
 
     private def press: Int => Callback = int => {
-      startGame(pressRequest(int))
+      startGame(randomeGameRequest(int))
     }
 
     private val getMessage = (s: GameStatus) =>
