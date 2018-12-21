@@ -33,6 +33,11 @@ lazy val website = project
     mainClass in Compile := Some("net.zawila.react.Game")
   )
 
+lazy val ai = project
+  .in(file("ai"))
+  .dependsOn(core)
+  .settings(Dependencies.ai)
+
 //lazy val all = project
 //  .in(file("."))
 //  .aggregate(core, web, website)

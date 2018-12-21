@@ -27,4 +27,13 @@ object Dependencies {
 //      "io.circe" %% "circe-parser"  % "0.10.0"
     )
   )
+
+  lazy val ai = Seq(
+    libraryDependencies ++= Seq(
+      "org.platanios" %% "tensorflow-data" % "0.4.1",
+      "org.platanios" %% "tensorflow" % "0.4.1" classifier "linux-cpu-x86_64",
+      "org.typelevel" %% "cats-core" % "1.5.0",
+      "org.http4s" %% "http4s-core" % "0.19.0"
+    )
+  )
 }
